@@ -87,4 +87,63 @@ public class ArrayStack {
         return this.top + 1;
     }
 
+    /**
+     * 判断是否是一个运算符 + - * /
+     */
+    public boolean isOper(char c) {
+        return c=='+' || c=='-' || c=='*' || c=='/';
+    }
+
+    /**
+     * 判断运算符的优先级
+     */
+    public int priority(int oper) {
+        if(oper=='*' || oper=='/') {
+            return 1;
+        }else if(oper=='+' || oper=='-') {
+            return 0;
+        }else {
+            return -1;
+        }
+    }
+
+    /**
+     * 栈容量
+     */
+    public int stackLength() {
+        return this.stack.length;
+    }
+
+    /**
+     * 获取栈顶数据
+     */
+    public int peek() {
+        return this.stack[top];
+    }
+
+    /**
+     * 计算两个数运算之后的结果
+     */
+    public int calculate(int num1, int num2, int oper) {
+        int result = 0;
+        switch (oper) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num2 - num1;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                result = num2 / num1;
+                break;
+            default:
+                break;
+        }
+        return result;
+    }
+
+
 }
